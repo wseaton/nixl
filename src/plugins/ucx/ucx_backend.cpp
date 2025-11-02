@@ -18,7 +18,6 @@
 #include "ucx_backend.h"
 #include "common/nixl_log.h"
 #include "serdes/serdes.h"
-#include "common/nixl_log.h"
 #include "ucx/gpu_xfer_req_h.h"
 
 #include <optional>
@@ -44,6 +43,33 @@ namespace {
             std::move(src.begin(), src.end(), std::back_inserter(tgt));
             src.clear();
         }
+    }
+
+    // get configurable constant from environment with fallback to default
+    int getEnvInt(const char* env_var, int default_value) {
+        const char* env_val = getenv(env_var);
+        if (!env_val) {
+            return default_value;
+        }
+        try {
+            int value = std::stoi(env_val);
+            return (value > 0) ? value : default_value;
+        } catch (...) {
+            NIXL_WARN << "Invalid value for " << env_var << ": " << env_val
+                      << ", using default: " << default_value;
+            return default_value;
+        }
+    }
+
+    // configurable constants for UCX progress and cancellation loops
+    int getMaxProgressIters() {
+        static int value = getEnvInt("NIXL_MAX_PROGRESS_ITERS", 10000);
+        return value;
+    }
+
+    int getMaxCancelProgress() {
+        static int value = getEnvInt("NIXL_MAX_CANCEL_PROGRESS", 100);
+        return value;
     }
 }
 
@@ -369,12 +395,28 @@ public:
 
     virtual nixl_status_t
     release() {
-        // TODO: Error log: uncompleted requests found! Cancelling ...
         for (nixlUcxIntReq *req : requests_) {
             if (!req->is_complete()) {
-                // TODO: Need process this properly.
-                // it may not be enough to cancel UCX request
+                NIXL_WARN << "Uncompleted request found during release - canceling";
                 worker->reqCancel((nixlUcxReq)req);
+
+                /* bounded progress to let cancellation make headway */
+                const int MAX_CANCEL_PROGRESS = getMaxCancelProgress();
+                for (int i = 0; i < MAX_CANCEL_PROGRESS; i++) {
+                    worker->progress();
+                    ucs_status_t status = ucp_request_check_status((nixlUcxReq)req);
+                    if (status != UCS_INPROGRESS) {
+                        break;
+                    }
+                }
+
+                // check if request is still in progress after cancellation attempts
+                ucs_status_t final_status = ucp_request_check_status((nixlUcxReq)req);
+                if (final_status == UCS_INPROGRESS) {
+                    NIXL_ERROR << "Request still in progress after " << MAX_CANCEL_PROGRESS
+                               << " cancellation attempts on worker " << worker_id
+                               << " - forcing release (may leak resources)";
+                }
             }
             _internalRequestReset(req);
             worker->reqRelease((nixlUcxReq)req);
@@ -390,9 +432,17 @@ public:
             return NIXL_SUCCESS;
         }
 
-        /* Maximum progress */
-        while (worker->progress())
+        /* Bounded progress - prevent infinite spin on stuck requests */
+        const int MAX_PROGRESS_ITERS = getMaxProgressIters();
+        int progress_count = 0;
+        while (worker->progress() && progress_count++ < MAX_PROGRESS_ITERS)
             ;
+
+        if (progress_count >= MAX_PROGRESS_ITERS) {
+            NIXL_WARN << "Progress loop exceeded " << MAX_PROGRESS_ITERS
+                      << " iterations on worker " << worker_id
+                      << " - may have stuck requests in worker queue";
+        }
 
         /* Go over all request updating their status */
         nixl_status_t out_ret = NIXL_SUCCESS;
