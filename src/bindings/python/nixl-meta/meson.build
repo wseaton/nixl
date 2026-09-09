@@ -17,17 +17,6 @@ fs = import('fs')
 
 build_dir = meson.current_build_dir()
 
-pyproject_toml = configure_file(
-  input: 'pyproject.toml.in',
-  output: 'pyproject.toml',
-  configuration: {
-    'VERSION': meson.project_version(),
-    'WHEEL_DEPS': get_option('release_wheel') \
-      ? '"nixl-cu12==' + meson.project_version() + '", "nixl-cu13==' + meson.project_version() + '"' \
-      : '"' + cuda_wheel_dir.replace('_', '-') + '==' + meson.project_version() + '"',
-  }
-)
-
 readme_md = fs.copyfile('README.md')
 nixl_meta_utils_copy = fs.copyfile('nixl_meta_utils.py')
 
@@ -36,7 +25,33 @@ root_license_path = join_paths(source_root, 'LICENSE')
 license_path = fs.copyfile(root_license_path)
 
 subdir('nixl')
-subdir('nixl_ep')
+meta_packages = ['"nixl"']
+meta_wheel_inputs = [
+  readme_md,
+  license_path,
+  nixl_meta_utils_copy,
+  nixl_init_copy,
+  nixl_api_copy,
+  nixl_logging_copy,
+]
+
+if get_option('build_nixl_ep') or get_option('release_wheel')
+  subdir('nixl_ep')
+  meta_packages += ['"nixl_ep"']
+  meta_wheel_inputs += [nixl_ep_init_copy]
+endif
+
+pyproject_toml = configure_file(
+  input: 'pyproject.toml.in',
+  output: 'pyproject.toml',
+  configuration: {
+    'VERSION': meson.project_version(),
+    'WHEEL_DEPS': get_option('release_wheel') \
+      ? '"nixl-cu12==' + meson.project_version() + '", "nixl-cu13==' + meson.project_version() + '"' \
+      : '"' + cuda_wheel_dir.replace('_', '-') + '==' + meson.project_version() + '"',
+    'PACKAGES': ', '.join(meta_packages),
+  }
+)
 
 uv = find_program('uv', required: false)
 if uv.found()
@@ -47,16 +62,7 @@ if uv.found()
   # up edits to the source __init__.py files.
   meta_wheel = custom_target(
     'build_nixl_meta',
-    input: [
-      pyproject_toml,
-      readme_md,
-      license_path,
-      nixl_meta_utils_copy,
-      nixl_init_copy,
-      nixl_api_copy,
-      nixl_logging_copy,
-      nixl_ep_init_copy,
-    ],
+    input: [pyproject_toml] + meta_wheel_inputs,
     output: [wheel_name],
     command: [uv, 'build', '--wheel', '--out-dir', build_dir, build_dir],
     install: false,
