@@ -1,0 +1,530 @@
+== node: 6.8.12-680-6063-coreweave-amd64-f81899c8 thp: always [madvise] never defrag: always defer defer+madvise [madvise] never
+== memlock: unlimited caps: CapEff:	00000000a80465fb
+== rdma devices
+hca_id:	ibp0
+			state:			PORT_ACTIVE (4)
+			active_mtu:		4096 (5)
+			link_layer:		InfiniBand
+hca_id:	ibp1
+			state:			PORT_ACTIVE (4)
+			active_mtu:		4096 (5)
+			link_layer:		InfiniBand
+hca_id:	ibp2
+			state:			PORT_ACTIVE (4)
+			active_mtu:		4096 (5)
+			link_layer:		InfiniBand
+hca_id:	ibp3
+			state:			PORT_ACTIVE (4)
+			active_mtu:		4096 (5)
+			link_layer:		InfiniBand
+hca_id:	ibp4
+			state:			PORT_ACTIVE (4)
+			active_mtu:		4096 (5)
+			link_layer:		InfiniBand
+hca_id:	ibp5
+			state:			PORT_ACTIVE (4)
+			active_mtu:		4096 (5)
+			link_layer:		InfiniBand
+hca_id:	ibp6
+			state:			PORT_ACTIVE (4)
+			active_mtu:		4096 (5)
+			link_layer:		InfiniBand
+hca_id:	ibp7
+			state:			PORT_ACTIVE (4)
+			active_mtu:		4096 (5)
+			link_layer:		InfiniBand
+== ucx
+# Library version: 1.23.0
+# Library path: /usr/local/ucx/lib/libucs.so.0
+# API headers version: 1.23.0
+      1 #         Device: eth0
+      5 #         Device: ibp0:1
+      5 #         Device: ibp1:1
+      5 #         Device: ibp2:1
+      5 #         Device: ibp3:1
+      5 #         Device: ibp4:1
+      5 #         Device: ibp5:1
+      5 #         Device: ibp6:1
+      5 #         Device: ibp7:1
+      1 #         Device: lo
+      4 #         Device: memory
+      1 #      Transport: cma
+      8 #      Transport: dc_mlx5
+      1 #      Transport: posix
+      8 #      Transport: rc_mlx5
+      8 #      Transport: rc_verbs
+      1 #      Transport: self
+      1 #      Transport: sysv
+      2 #      Transport: tcp
+      8 #      Transport: ud_mlx5
+      8 #      Transport: ud_verbs
+      1 # Memory domain: cma
+      1 # Memory domain: ibp0
+      1 # Memory domain: ibp1
+      1 # Memory domain: ibp2
+      1 # Memory domain: ibp3
+      1 # Memory domain: ibp4
+      1 # Memory domain: ibp5
+      1 # Memory domain: ibp6
+      1 # Memory domain: ibp7
+      1 # Memory domain: posix
+      1 # Memory domain: self
+      1 # Memory domain: sysv
+      1 # Memory domain: tcp
+== run: default
+W1113 01:33:23.645452      31 ucx_utils.cpp:863] nixlUcxContext regbench: 8 NVIDIA GPU(s) were detected, but UCX CUDA support was not found! GPU memory is not supported.
+tag,mode,size_mib,iter,alloc_us,touch_us,register_us,deregister_us,free_us,anon_huge_kb
+default,vec-lazy,16,0,16,0,14924,4,0,0
+default,vec-lazy,16,1,614,0,6,1,0,0
+default,vec-lazy,16,2,555,0,3,1,0,0
+default,vec-lazy,16,3,531,0,3,1,0,0
+default,vec-lazy,16,4,515,0,2,1,0,0
+default,vec-lazy,16,5,508,0,2,1,0,0
+default,vec-lazy,16,6,505,0,2,1,0,0
+default,vec-lazy,16,7,505,0,2,1,0,0
+default,vec-lazy,16,8,501,0,2,1,0,0
+default,vec-lazy,16,9,499,0,2,1,0,0
+default,vec-touched,16,0,485,486,9747,1,0,0
+default,vec-touched,16,1,498,490,3,1,0,0
+default,vec-touched,16,2,480,481,3,1,0,0
+default,vec-touched,16,3,481,478,2,1,0,0
+default,vec-touched,16,4,476,479,2,1,0,0
+default,vec-touched,16,5,480,477,2,1,0,0
+default,vec-touched,16,6,478,481,2,1,0,0
+default,vec-touched,16,7,480,477,2,1,0,0
+default,vec-touched,16,8,476,480,2,1,0,0
+default,vec-touched,16,9,482,478,2,1,0,0
+default,mmap-4k,16,0,13,6409,11271,7,267,0
+default,mmap-4k,16,1,19,6430,10120,3,290,0
+default,mmap-4k,16,2,10,5876,9831,2,199,0
+default,mmap-4k,16,3,8,5767,9494,2,192,0
+default,mmap-4k,16,4,8,5773,9065,1,186,0
+default,mmap-4k,16,5,8,5508,9316,1,185,0
+default,mmap-4k,16,6,8,5399,9344,2,185,0
+default,mmap-4k,16,7,7,5442,9199,1,187,0
+default,mmap-4k,16,8,6,5392,9246,1,184,0
+default,mmap-4k,16,9,6,5444,10074,5,198,0
+default,mmap-thp,16,0,8,2252,4626,2,8,16384
+default,mmap-thp,16,1,8,2140,4725,1,8,16384
+default,mmap-thp,16,2,6,2141,4474,2,10,16384
+default,mmap-thp,16,3,8,2027,4566,1,8,16384
+default,mmap-thp,16,4,7,2098,4263,1,7,16384
+default,mmap-thp,16,5,6,1949,4384,1,7,16384
+default,mmap-thp,16,6,5,1812,4363,1,7,16384
+default,mmap-thp,16,7,6,1679,4627,1,8,16384
+default,mmap-thp,16,8,5,1596,4429,1,8,16384
+default,mmap-thp,16,9,5,1527,4284,1,7,16384
+default,vec-lazy,64,0,7,0,40556,3,624,0
+default,vec-lazy,64,1,9,0,37400,3,613,0
+default,vec-lazy,64,2,8,0,38316,3,609,0
+default,vec-lazy,64,3,7,0,36609,3,604,0
+default,vec-lazy,64,4,7,0,41532,9,615,0
+default,vec-lazy,64,5,11,0,39014,7,632,0
+default,vec-lazy,64,6,11,0,39697,5,631,0
+default,vec-lazy,64,7,10,0,38125,5,619,0
+default,vec-lazy,64,8,9,0,40800,7,637,0
+default,vec-lazy,64,9,11,0,37733,4,626,0
+default,vec-touched,64,0,9,30711,30938,8,746,0
+default,vec-touched,64,1,12,29089,30653,6,745,0
+default,vec-touched,64,2,10,28610,30104,3,700,0
+default,vec-touched,64,3,8,28833,28891,3,724,0
+default,vec-touched,64,4,7,28552,29392,2,721,0
+default,vec-touched,64,5,7,28660,29665,2,732,0
+default,vec-touched,64,6,7,28448,28351,2,699,0
+default,vec-touched,64,7,7,28640,29207,3,727,0
+default,vec-touched,64,8,8,28463,29132,2,728,0
+default,vec-touched,64,9,7,28775,28388,3,740,0
+default,mmap-4k,64,0,16,28835,29320,3,733,0
+default,mmap-4k,64,1,13,28491,29464,3,715,0
+default,mmap-4k,64,2,13,28744,27691,3,737,0
+default,mmap-4k,64,3,14,28491,27949,3,715,0
+default,mmap-4k,64,4,12,28861,30114,9,793,0
+default,mmap-4k,64,5,20,30722,31977,7,721,0
+default,mmap-4k,64,6,19,29037,30186,3,729,0
+default,mmap-4k,64,7,14,28581,29146,3,710,0
+default,mmap-4k,64,8,13,28837,28887,3,748,0
+default,mmap-4k,64,9,11,28465,28647,3,728,0
+default,mmap-thp,64,0,8,14358,6340,1,18,65536
+default,mmap-thp,64,1,6,14000,6474,1,18,65536
+default,mmap-thp,64,2,6,13996,5784,1,18,65536
+default,mmap-thp,64,3,6,14011,5901,1,17,65536
+default,mmap-thp,64,4,6,13974,5494,1,15,65536
+default,mmap-thp,64,5,6,13990,5253,1,16,65536
+default,mmap-thp,64,6,6,13956,5365,1,15,65536
+default,mmap-thp,64,7,6,13972,5524,1,15,65536
+default,mmap-thp,64,8,6,13965,5356,1,14,65536
+default,mmap-thp,64,9,6,13976,5785,1,15,65536
+default,vec-lazy,256,0,12,0,150832,9,2362,0
+default,vec-lazy,256,1,15,0,151683,11,2461,0
+default,vec-lazy,256,2,14,0,137425,8,2417,0
+default,vec-lazy,256,3,18,0,148319,7,2444,0
+default,vec-lazy,256,4,17,0,142154,7,2397,0
+default,vec-lazy,256,5,15,0,150251,7,2430,0
+default,vec-lazy,256,6,15,0,147548,9,2406,0
+default,vec-lazy,256,7,17,0,147258,7,2437,0
+default,vec-lazy,256,8,14,0,135670,11,2263,0
+default,vec-lazy,256,9,15,0,139130,10,2336,0
+default,vec-touched,256,0,17,125016,123037,20,3014,0
+default,vec-touched,256,1,14,118389,126629,12,2971,0
+default,vec-touched,256,2,13,122989,118739,9,2873,0
+default,vec-touched,256,3,17,117270,115457,8,2934,0
+default,vec-touched,256,4,16,117344,123402,11,2936,0
+default,vec-touched,256,5,18,117142,117811,10,2953,0
+default,vec-touched,256,6,18,116628,114996,8,2871,0
+default,vec-touched,256,7,17,116890,120170,12,2930,0
+default,vec-touched,256,8,18,118272,118567,11,2889,0
+default,vec-touched,256,9,18,117685,120421,9,2933,0
+default,mmap-4k,256,0,24,123098,123281,7,2845,0
+default,mmap-4k,256,1,21,117577,130280,11,2906,0
+default,mmap-4k,256,2,25,116296,116513,8,2853,0
+default,mmap-4k,256,3,24,116757,121217,9,2861,0
+default,mmap-4k,256,4,23,116512,117799,9,2831,0
+default,mmap-4k,256,5,24,117102,115213,8,2910,0
+default,mmap-4k,256,6,22,116509,115155,9,2839,0
+default,mmap-4k,256,7,22,116811,114331,9,2924,0
+default,mmap-4k,256,8,20,116263,120574,9,2844,0
+default,mmap-4k,256,9,23,116643,114740,7,2863,0
+default,mmap-thp,256,0,18,56761,12529,4,50,262144
+default,mmap-thp,256,1,12,56442,11163,3,46,262144
+default,mmap-thp,256,2,10,56465,10494,3,42,262144
+default,mmap-thp,256,3,9,56404,10682,2,44,262144
+default,mmap-thp,256,4,8,56543,11188,5,49,262144
+default,mmap-thp,256,5,14,56337,11736,4,52,262144
+default,mmap-thp,256,6,13,56451,11994,3,46,262144
+default,mmap-thp,256,7,10,56473,11239,2,44,262144
+default,mmap-thp,256,8,9,56390,10456,2,43,262144
+default,mmap-thp,256,9,13,56378,11335,2,42,262144
+default,vec-lazy,1024,0,18,0,535967,9,8779,0
+default,vec-lazy,1024,1,17,0,512060,10,8916,0
+default,vec-lazy,1024,2,17,0,535555,9,8927,0
+default,vec-lazy,1024,3,17,0,526707,10,8897,0
+default,vec-lazy,1024,4,22,0,539760,9,8916,0
+default,vec-lazy,1024,5,17,0,517602,11,8874,0
+default,vec-lazy,1024,6,15,0,536275,8,8906,0
+default,vec-lazy,1024,7,17,0,533727,10,8907,0
+default,vec-lazy,1024,8,21,0,510422,9,8870,0
+default,vec-lazy,1024,9,17,0,567481,9,8966,0
+default,vec-touched,1024,0,18,499430,633776,11,13016,0
+default,vec-touched,1024,1,23,471001,647735,14,21589,0
+default,vec-touched,1024,2,19,479246,585242,14,14799,0
+default,vec-touched,1024,3,19,460987,599358,10,13296,0
+default,vec-touched,1024,4,21,464325,668804,12,13027,0
+default,vec-touched,1024,5,23,486370,611831,11,13535,0
+default,vec-touched,1024,6,23,474088,581460,10,12888,0
+default,vec-touched,1024,7,22,466068,634752,11,14473,0
+default,vec-touched,1024,8,24,463760,608207,9,14672,0
+default,vec-touched,1024,9,18,477640,580068,12,13431,0
+default,mmap-4k,1024,0,26,468527,583196,12,15938,0
+default,mmap-4k,1024,1,26,473823,500902,11,12211,0
+default,mmap-4k,1024,2,27,465640,632833,12,14303,0
+default,mmap-4k,1024,3,27,465036,580730,12,11859,0
+default,mmap-4k,1024,4,26,463688,617328,12,13593,0
+default,mmap-4k,1024,5,24,469910,521538,12,11405,0
+default,mmap-4k,1024,6,26,493204,577138,11,13336,0
+default,mmap-4k,1024,7,26,473189,672152,12,12681,0
+default,mmap-4k,1024,8,24,466750,565211,13,13355,0
+default,mmap-4k,1024,9,25,469311,585783,11,12028,0
+default,mmap-thp,1024,0,22,227117,34339,8,210,1048576
+default,mmap-thp,1024,1,21,226380,33477,6,189,1048576
+default,mmap-thp,1024,2,17,226414,34361,7,216,1048576
+default,mmap-thp,1024,3,18,226614,34080,6,200,1048576
+default,mmap-thp,1024,4,19,226637,34387,7,239,1048576
+default,mmap-thp,1024,5,19,226538,34468,10,228,1048576
+default,mmap-thp,1024,6,19,230606,34312,10,263,1048576
+default,mmap-thp,1024,7,23,226189,33401,8,203,1048576
+default,mmap-thp,1024,8,21,225943,33893,9,215,1048576
+default,mmap-thp,1024,9,21,228143,30959,8,194,1048576
+default,vec-lazy,4096,0,25,0,1168754,11,36513,0
+default,vec-lazy,4096,1,20,0,1202760,12,38882,0
+default,vec-lazy,4096,2,18,0,1201027,12,38259,0
+default,vec-lazy,4096,3,21,0,1213361,19,49182,0
+default,vec-lazy,4096,4,26,0,1227412,19,51500,0
+default,vec-lazy,4096,5,20,0,1243210,15,40921,0
+default,vec-lazy,4096,6,22,0,1307480,17,48011,0
+default,vec-lazy,4096,7,20,0,1230040,14,40119,0
+default,vec-lazy,4096,8,20,0,1215687,13,39495,0
+default,vec-lazy,4096,9,19,0,1213899,13,39884,0
+default,vec-touched,4096,0,17,1939256,1386568,11,72369,0
+default,vec-touched,4096,1,18,1886383,1502335,14,85992,0
+default,vec-touched,4096,2,18,1829461,1395578,13,74526,0
+default,vec-touched,4096,3,19,1895260,1483949,13,86672,0
+default,vec-touched,4096,4,16,1847410,1451099,14,77283,0
+default,vec-touched,4096,5,19,1882964,1581848,12,86746,0
+default,vec-touched,4096,6,23,1894660,1478189,11,78315,0
+default,vec-touched,4096,7,20,1884631,1567848,13,87470,0
+default,vec-touched,4096,8,19,1869276,1471329,11,79447,0
+default,vec-touched,4096,9,21,1900846,1540232,11,86090,0
+default,mmap-4k,4096,0,23,1890733,1600514,16,90263,0
+default,mmap-4k,4096,1,23,1859350,1457378,14,78308,0
+default,mmap-4k,4096,2,27,1888302,1601636,13,90467,0
+default,mmap-4k,4096,3,27,1859098,1550120,20,120141,0
+default,mmap-4k,4096,4,33,1931998,1708342,13,111912,0
+default,mmap-4k,4096,5,25,1927283,1574207,13,86001,0
+default,mmap-4k,4096,6,25,1901920,1480077,14,81173,0
+default,mmap-4k,4096,7,23,1888180,1620097,14,90521,0
+default,mmap-4k,4096,8,26,1896913,1525516,12,83225,0
+default,mmap-4k,4096,9,26,1901841,1611117,22,130730,0
+default,mmap-thp,4096,0,26,893977,97935,12,1062,4194304
+default,mmap-thp,4096,1,28,901304,101160,15,1050,4194304
+default,mmap-thp,4096,2,25,905163,99641,11,1046,4194304
+default,mmap-thp,4096,3,24,900472,98237,11,1051,4194304
+default,mmap-thp,4096,4,24,908375,101628,12,1080,4194304
+default,mmap-thp,4096,5,26,902649,96655,14,1070,4194304
+default,mmap-thp,4096,6,25,898157,101726,12,1155,4194304
+default,mmap-thp,4096,7,27,904420,108319,11,1062,4194304
+default,mmap-thp,4096,8,24,904036,100386,13,1077,4194304
+default,mmap-thp,4096,9,27,914180,98121,12,1047,4194304
+
+[default] medians over 10 iterations, ms (first iteration discarded)
+size_mib mode             alloc     touch   register  deregister      free   thp_pct
+      16 vec-lazy         0.509     0.000      0.003       0.001     0.000         0
+      16 vec-touched      0.480     0.480      0.003       0.001     0.000         0
+      16 mmap-4k          0.009     5.768      9.495       0.002     0.193         0
+      16 mmap-thp         0.007     2.028      4.475       0.002     0.008       100
+      64 vec-lazy         0.009     0.000     39.015       0.005     0.624         0
+      64 vec-touched      0.008    28.660     29.392       0.003     0.729         0
+      64 mmap-4k          0.014    28.836     29.321       0.004     0.729         0
+      64 mmap-thp         0.006    13.990      5.784       0.002     0.016       100
+     256 vec-lazy         0.016     0.000    147.549       0.010     2.417         0
+     256 vec-touched      0.018   117.686    120.171       0.011     2.935         0
+     256 mmap-4k          0.023   116.757    117.800       0.010     2.862         0
+     256 mmap-thp         0.012    56.452     11.240       0.004     0.047       100
+    1024 vec-lazy         0.018     0.000    535.556       0.010     8.907         0
+    1024 vec-touched      0.023   474.088    611.832       0.012    13.536         0
+    1024 mmap-4k          0.026   469.312    583.196       0.012    13.337         0
+    1024 mmap-thp         0.021   226.614     34.312       0.008     0.216       100
+    4096 vec-lazy         0.021     0.000   1215.688       0.015    40.119         0
+    4096 vec-touched      0.019  1886.384   1483.949       0.013    85.992         0
+    4096 mmap-4k          0.026  1896.914   1600.515       0.014    90.468         0
+    4096 mmap-thp         0.026   904.036    100.386       0.013     1.062       100
+== run: rcache off
+W1113 01:35:52.958672    4258 ucx_utils.cpp:863] nixlUcxContext regbench: 8 NVIDIA GPU(s) were detected, but UCX CUDA support was not found! GPU memory is not supported.
+tag,mode,size_mib,iter,alloc_us,touch_us,register_us,deregister_us,free_us,anon_huge_kb
+rcache-off,vec-lazy,16,0,7,0,9491,2929,0,0
+rcache-off,vec-lazy,16,1,623,0,6253,2918,0,0
+rcache-off,vec-lazy,16,2,533,0,5897,3083,0,0
+rcache-off,vec-lazy,16,3,514,0,5959,2843,0,0
+rcache-off,vec-lazy,16,4,513,0,5660,2752,0,0
+rcache-off,vec-lazy,16,5,516,0,5650,2726,0,0
+rcache-off,vec-lazy,16,6,501,0,5795,3146,0,0
+rcache-off,vec-lazy,16,7,494,0,5626,2884,0,0
+rcache-off,vec-lazy,16,8,507,0,5750,2734,0,0
+rcache-off,vec-lazy,16,9,500,0,5635,2546,0,0
+rcache-off,vec-touched,16,0,66,6613,6083,2986,0,0
+rcache-off,vec-touched,16,1,1000,566,5989,2847,0,0
+rcache-off,vec-touched,16,2,490,483,5887,3068,0,0
+rcache-off,vec-touched,16,3,486,479,5971,2745,0,0
+rcache-off,vec-touched,16,4,485,488,6128,2758,0,0
+rcache-off,vec-touched,16,5,500,497,6064,2898,0,0
+rcache-off,vec-touched,16,6,498,497,5842,2861,1,0
+rcache-off,vec-touched,16,7,479,473,6208,2911,0,0
+rcache-off,vec-touched,16,8,471,475,6174,2906,0,0
+rcache-off,vec-touched,16,9,627,577,6101,2897,0,0
+rcache-off,mmap-4k,16,0,13,5802,6267,3386,435,0
+rcache-off,mmap-4k,16,1,12,5196,6088,3057,402,0
+rcache-off,mmap-4k,16,2,8,4865,6055,3041,397,0
+rcache-off,mmap-4k,16,3,8,4765,5985,2809,385,0
+rcache-off,mmap-4k,16,4,8,4690,5834,2866,399,0
+rcache-off,mmap-4k,16,5,9,4697,5583,3038,382,0
+rcache-off,mmap-4k,16,6,7,4660,5971,2808,380,0
+rcache-off,mmap-4k,16,7,10,4583,5681,2752,382,0
+rcache-off,mmap-4k,16,8,8,4588,5782,2760,376,0
+rcache-off,mmap-4k,16,9,7,4587,5760,2708,390,0
+rcache-off,mmap-thp,16,0,7,2032,2469,1567,27,16384
+rcache-off,mmap-thp,16,1,7,1424,2530,1558,26,16384
+rcache-off,mmap-thp,16,2,6,1287,2578,1581,27,16384
+rcache-off,mmap-thp,16,3,5,1223,2632,1759,26,16384
+rcache-off,mmap-thp,16,4,5,1236,2575,1637,26,16384
+rcache-off,mmap-thp,16,5,5,1206,2657,1712,25,16384
+rcache-off,mmap-thp,16,6,5,1239,2579,1601,24,16384
+rcache-off,mmap-thp,16,7,5,1231,2707,1553,24,16384
+rcache-off,mmap-thp,16,8,5,1212,2645,1716,25,16384
+rcache-off,mmap-thp,16,9,5,1195,2664,1699,28,16384
+rcache-off,vec-lazy,64,0,8,0,30314,6723,1580,0
+rcache-off,vec-lazy,64,1,10,0,29752,6427,1558,0
+rcache-off,vec-lazy,64,2,10,0,30608,6562,1558,0
+rcache-off,vec-lazy,64,3,10,0,29946,6637,1547,0
+rcache-off,vec-lazy,64,4,11,0,33239,6633,1594,0
+rcache-off,vec-lazy,64,5,13,0,30115,6959,1552,0
+rcache-off,vec-lazy,64,6,12,0,29541,6505,1559,0
+rcache-off,vec-lazy,64,7,12,0,30030,6786,1537,0
+rcache-off,vec-lazy,64,8,10,0,29844,6593,1523,0
+rcache-off,vec-lazy,64,9,10,0,29432,6266,1518,0
+rcache-off,vec-touched,64,0,9,28870,18455,7970,1754,0
+rcache-off,vec-touched,64,1,10,28675,18463,7873,1695,0
+rcache-off,vec-touched,64,2,9,28336,19016,8118,1634,0
+rcache-off,vec-touched,64,3,8,28455,19922,8012,1706,0
+rcache-off,vec-touched,64,4,10,28522,18816,8460,1683,0
+rcache-off,vec-touched,64,5,8,28428,18192,7612,1656,0
+rcache-off,vec-touched,64,6,8,28324,17966,7563,1626,0
+rcache-off,vec-touched,64,7,7,30240,18506,7729,1764,0
+rcache-off,vec-touched,64,8,11,28900,18235,7860,1726,0
+rcache-off,vec-touched,64,9,10,28761,25913,11191,3908,0
+rcache-off,mmap-4k,64,0,18,32061,19703,8191,2364,0
+rcache-off,mmap-4k,64,1,17,29687,18338,7858,1691,0
+rcache-off,mmap-4k,64,2,14,29244,18670,7990,1676,0
+rcache-off,mmap-4k,64,3,14,29052,18327,7952,1654,0
+rcache-off,mmap-4k,64,4,13,31123,19439,8370,1735,0
+rcache-off,mmap-4k,64,5,18,29205,19086,8807,1709,0
+rcache-off,mmap-4k,64,6,13,28896,18342,7640,1686,0
+rcache-off,mmap-4k,64,7,12,28883,18481,8052,1686,0
+rcache-off,mmap-4k,64,8,11,28893,18509,7771,1673,0
+rcache-off,mmap-4k,64,9,11,28796,18324,7693,1674,0
+rcache-off,mmap-thp,64,0,8,14365,3623,1624,83,65536
+rcache-off,mmap-thp,64,1,7,14322,3635,1726,83,65536
+rcache-off,mmap-thp,64,2,6,14287,3759,1753,84,65536
+rcache-off,mmap-thp,64,3,6,14385,3969,1813,86,65536
+rcache-off,mmap-thp,64,4,6,14351,3898,1960,86,65536
+rcache-off,mmap-thp,64,5,7,14421,3969,1807,82,65536
+rcache-off,mmap-thp,64,6,7,14396,4096,2101,121,65536
+rcache-off,mmap-thp,64,7,13,14069,4163,2110,85,65536
+rcache-off,mmap-thp,64,8,9,14233,4205,1977,95,65536
+rcache-off,mmap-thp,64,9,12,13950,4003,2121,87,65536
+rcache-off,vec-lazy,256,0,13,0,108465,19330,5770,0
+rcache-off,vec-lazy,256,1,13,0,107923,18561,5743,0
+rcache-off,vec-lazy,256,2,13,0,107465,18268,5888,0
+rcache-off,vec-lazy,256,3,12,0,108124,19657,7665,0
+rcache-off,vec-lazy,256,4,20,0,110295,19915,5887,0
+rcache-off,vec-lazy,256,5,19,0,108379,18951,5754,0
+rcache-off,vec-lazy,256,6,15,0,109205,18767,5772,0
+rcache-off,vec-lazy,256,7,15,0,109036,18894,7526,0
+rcache-off,vec-lazy,256,8,14,0,109294,19029,5783,0
+rcache-off,vec-lazy,256,9,13,0,108476,19076,5779,0
+rcache-off,vec-touched,256,0,16,115845,72067,28029,7517,0
+rcache-off,vec-touched,256,1,15,116365,70295,27318,6592,0
+rcache-off,vec-touched,256,2,13,116110,71014,27386,6682,0
+rcache-off,vec-touched,256,3,14,115516,70783,27291,6628,0
+rcache-off,vec-touched,256,4,13,115713,71522,28776,6613,0
+rcache-off,vec-touched,256,5,13,115853,71335,27511,7449,0
+rcache-off,vec-touched,256,6,14,119407,79849,28181,6613,0
+rcache-off,vec-touched,256,7,16,116076,98915,28267,6706,0
+rcache-off,vec-touched,256,8,16,115715,70347,28055,6868,0
+rcache-off,vec-touched,256,9,14,115774,71590,28012,7613,0
+rcache-off,mmap-4k,256,0,19,116216,72778,27800,6720,0
+rcache-off,mmap-4k,256,1,19,116258,72597,28333,6661,0
+rcache-off,mmap-4k,256,2,23,115777,70876,27450,7454,0
+rcache-off,mmap-4k,256,3,21,116345,70773,27884,6553,0
+rcache-off,mmap-4k,256,4,20,115562,71168,28044,6648,0
+rcache-off,mmap-4k,256,5,17,116962,74338,28082,6612,0
+rcache-off,mmap-4k,256,6,21,115720,70777,27309,6645,0
+rcache-off,mmap-4k,256,7,20,121965,80564,28802,8498,0
+rcache-off,mmap-4k,256,8,23,120024,73467,29166,7058,0
+rcache-off,mmap-4k,256,9,21,117836,68691,26751,6739,0
+rcache-off,mmap-thp,256,0,12,56324,8211,1906,319,262144
+rcache-off,mmap-thp,256,1,9,56352,8402,1997,342,262144
+rcache-off,mmap-thp,256,2,9,56359,8911,2175,320,262144
+rcache-off,mmap-thp,256,3,8,56433,9156,2642,304,262144
+rcache-off,mmap-thp,256,4,8,56448,8493,2082,327,262144
+rcache-off,mmap-thp,256,5,8,56440,8015,2039,303,262144
+rcache-off,mmap-thp,256,6,7,56379,8043,1870,302,262144
+rcache-off,mmap-thp,256,7,7,56829,9310,2446,332,262144
+rcache-off,mmap-thp,256,8,11,56792,9172,2408,316,262144
+rcache-off,mmap-thp,256,9,10,56901,9059,2222,306,262144
+rcache-off,vec-lazy,1024,0,16,0,416581,60485,23327,0
+rcache-off,vec-lazy,1024,1,21,0,420186,59685,22153,0
+rcache-off,vec-lazy,1024,2,18,0,412077,61156,22930,0
+rcache-off,vec-lazy,1024,3,18,0,413469,60935,22230,0
+rcache-off,vec-lazy,1024,4,21,0,416019,61879,23302,0
+rcache-off,vec-lazy,1024,5,19,0,436018,61599,26880,0
+rcache-off,vec-lazy,1024,6,20,0,406155,58895,22908,0
+rcache-off,vec-lazy,1024,7,15,0,413922,59808,22118,0
+rcache-off,vec-lazy,1024,8,16,0,406948,59119,22058,0
+rcache-off,vec-lazy,1024,9,15,0,422409,60115,22871,0
+rcache-off,vec-touched,1024,0,17,465114,437940,132146,29872,0
+rcache-off,vec-touched,1024,1,18,466438,400070,156319,31765,0
+rcache-off,vec-touched,1024,2,23,473221,396799,134315,30301,0
+rcache-off,vec-touched,1024,3,19,464878,451514,141023,29947,0
+rcache-off,vec-touched,1024,4,22,469334,439594,154266,30834,0
+rcache-off,vec-touched,1024,5,25,464773,391140,133665,30014,0
+rcache-off,vec-touched,1024,6,20,484175,432591,151730,34373,0
+rcache-off,vec-touched,1024,7,20,464404,384855,134107,30762,0
+rcache-off,vec-touched,1024,8,19,464561,410123,141567,30164,0
+rcache-off,vec-touched,1024,9,19,464810,388242,139507,30160,0
+rcache-off,mmap-4k,1024,0,24,480590,398653,134943,30566,0
+rcache-off,mmap-4k,1024,1,26,465171,393662,142802,29097,0
+rcache-off,mmap-4k,1024,2,25,463237,464383,151762,29412,0
+rcache-off,mmap-4k,1024,3,27,461491,424238,154406,31771,0
+rcache-off,mmap-4k,1024,4,26,467619,464005,139410,41775,0
+rcache-off,mmap-4k,1024,5,23,463105,413438,136803,28994,0
+rcache-off,mmap-4k,1024,6,24,461548,373655,136621,29403,0
+rcache-off,mmap-4k,1024,7,26,462278,392001,150794,29119,0
+rcache-off,mmap-4k,1024,8,24,461445,379473,137557,30706,0
+rcache-off,mmap-4k,1024,9,25,469346,429522,134235,28564,0
+rcache-off,mmap-thp,1024,0,18,222822,27795,3482,1253,1048576
+rcache-off,mmap-thp,1024,1,17,222480,26227,3197,1230,1048576
+rcache-off,mmap-thp,1024,2,16,222529,25866,3084,1310,1048576
+rcache-off,mmap-thp,1024,3,15,222635,26826,2948,1261,1048576
+rcache-off,mmap-thp,1024,4,14,222265,28737,3156,1304,1048576
+rcache-off,mmap-thp,1024,5,18,222449,25381,2621,1295,1048576
+rcache-off,mmap-thp,1024,6,16,222443,26438,3117,1341,1048576
+rcache-off,mmap-thp,1024,7,19,224729,27996,3354,1283,1048576
+rcache-off,mmap-thp,1024,8,21,222741,25482,2983,1238,1048576
+rcache-off,mmap-thp,1024,9,17,223388,26639,3280,1271,1048576
+rcache-off,vec-lazy,4096,0,21,0,848605,132074,108599,0
+rcache-off,vec-lazy,4096,1,21,0,829604,129426,120886,0
+rcache-off,vec-lazy,4096,2,24,0,843064,133572,121787,0
+rcache-off,vec-lazy,4096,3,23,0,835939,133353,111771,0
+rcache-off,vec-lazy,4096,4,28,0,849785,137068,113577,0
+rcache-off,vec-lazy,4096,5,23,0,840023,137953,112837,0
+rcache-off,vec-lazy,4096,6,25,0,845505,138861,111530,0
+rcache-off,vec-lazy,4096,7,31,0,848238,138121,111782,0
+rcache-off,vec-lazy,4096,8,31,0,846424,139724,114128,0
+rcache-off,vec-lazy,4096,9,20,0,861134,140870,121412,0
+rcache-off,vec-touched,4096,0,24,1887550,888289,359330,191214,0
+rcache-off,vec-touched,4096,1,23,1875857,1004095,412881,171248,0
+rcache-off,vec-touched,4096,2,23,1874729,875540,367079,208725,0
+rcache-off,vec-touched,4096,3,24,1910669,940456,375914,246675,0
+rcache-off,vec-touched,4096,4,23,1873146,1056810,423227,189397,0
+rcache-off,vec-touched,4096,5,25,1913030,911898,363310,194436,0
+rcache-off,vec-touched,4096,6,23,1904947,1016692,421280,193552,0
+rcache-off,vec-touched,4096,7,23,1909805,1012298,432481,245240,0
+rcache-off,vec-touched,4096,8,26,1912656,1099352,469270,210896,0
+rcache-off,vec-touched,4096,9,22,1870777,1031488,438739,198693,0
+rcache-off,mmap-4k,4096,0,26,1908339,924533,365746,187042,0
+rcache-off,mmap-4k,4096,1,27,1937536,919029,381571,214900,0
+rcache-off,mmap-4k,4096,2,26,1911866,1049008,415860,208656,0
+rcache-off,mmap-4k,4096,3,25,1904787,989844,402857,208280,0
+rcache-off,mmap-4k,4096,4,29,1903949,1024821,414585,202653,0
+rcache-off,mmap-4k,4096,5,27,1893600,1035399,425048,188891,0
+rcache-off,mmap-4k,4096,6,26,1898508,1029439,447520,216741,0
+rcache-off,mmap-4k,4096,7,21,1996244,944686,392643,205205,0
+rcache-off,mmap-4k,4096,8,28,1913192,1056645,456559,214960,0
+rcache-off,mmap-4k,4096,9,25,1904689,1043918,424965,211912,0
+rcache-off,mmap-thp,4096,0,23,910267,88187,9060,9327,4194304
+rcache-off,mmap-thp,4096,1,21,907906,85765,9838,9162,4194304
+rcache-off,mmap-thp,4096,2,17,907743,84195,9299,9402,4194304
+rcache-off,mmap-thp,4096,3,21,906871,81454,8910,9205,4194304
+rcache-off,mmap-thp,4096,4,21,910358,84441,9103,9179,4194304
+rcache-off,mmap-thp,4096,5,22,911432,80891,9158,9063,4194304
+rcache-off,mmap-thp,4096,6,20,907906,86217,9118,9339,4194304
+rcache-off,mmap-thp,4096,7,22,905274,84554,9643,8832,4194304
+rcache-off,mmap-thp,4096,8,21,892747,83588,9450,8792,4194304
+
+[rcache-off] medians over 10 iterations, ms (first iteration discarded)
+size_mib mode             alloc     touch   register  deregister      free   thp_pct
+      16 vec-lazy         0.514     0.000      5.796       2.884     0.001         0
+rcache-off,mmap-thp,4096,9,21,914297,83348,9382,9129,4194304
+      16 vec-touched      0.491     0.498      6.084       2.898     0.001         0
+      16 mmap-4k          0.009     4.697      5.971       2.867     0.391         0
+      16 mmap-thp         0.005     1.236      2.633       1.638     0.026       100
+      64 vec-lazy         0.011     0.000     30.031       6.633     1.559         0
+      64 vec-touched      0.010    28.676     18.506       7.970     1.707         0
+      64 mmap-4k          0.014    29.205     18.509       7.990     1.687         0
+      64 mmap-thp         0.008    14.352      3.970       1.961     0.086       100
+     256 vec-lazy         0.015     0.000    108.477      19.030     5.784         0
+     256 vec-touched      0.014   115.854     71.523      28.030     6.706         0
+     256 mmap-4k          0.021   116.346     72.598      28.044     6.720         0
+     256 mmap-thp         0.009    56.440      8.912       2.176     0.320       100
+    1024 vec-lazy         0.019     0.000    416.019      60.486    22.909         0
+    1024 vec-touched      0.020   465.114    410.123     141.024    30.301         0
+    1024 mmap-4k          0.026   463.238    413.438     139.410    29.412         0
+    1024 mmap-thp         0.018   222.635     26.640       3.157     1.283       100
+    4096 vec-lazy         0.024     0.000    846.425     137.954   113.578         0
+    4096 vec-touched      0.024  1904.948   1012.298     421.280   198.693         0
+    4096 mmap-4k          0.027  1908.340   1029.439     415.860   208.657         0
+    4096 mmap-thp         0.022   907.907     84.441       9.299     9.179       100
+== run: tcp only
+E1113 01:38:17.779059       1 config.cpp:90] Invalid UCX_TLS=tcp for NIXL UCX backend: NVIDIA GPU(s) are present, but this setting does not enable CUDA memory support. Add cuda_copy for basic GPU support, or cuda to also include NVLink support.
+E1113 01:38:17.779130       1 backend_plugin.h:102] Failed to create engine: Invalid UCX_TLS=tcp for NIXL UCX backend: NVIDIA GPU(s) are present, but this setting does not enable CUDA memory support. Add cuda_copy for basic GPU support, or cuda to also include NVLink support.
+E1113 01:38:17.779137       1 nixl_agent.cpp:576] createBackend: backend creation failed for 'UCX'
+Error: BackendError

@@ -1,0 +1,14 @@
+[package]
+name = "regbench"
+version = "0.0.0"
+edition = "2021"
+publish = false
+
+[features]
+stub-api = ["nixl-sys/stub-api"]
+
+[dependencies]
+nixl-sys = { path = "../src/bindings/rust" }
+libc = "0.2"
+
+[workspace]
